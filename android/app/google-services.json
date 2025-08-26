@@ -1,0 +1,118 @@
+{
+  "project_info": {
+    "project_number": "562429955432",
+    "project_id": "shabakacourse",
+    "storage_bucket": "shabakacourse.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562429955432:android:d22c6e8bb76cd348939add",
+        "android_client_info": {
+          "package_name": "com.example.shabakahub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562429955432-fidlcfiadmg8guojh1cb9boq4t3qhktr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCveKWpXJe_WQHxQjv_034XorEVlm0ZrE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562429955432-fidlcfiadmg8guojh1cb9boq4t3qhktr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "562429955432-cfcdj45undq7le0p756htkkiklmactut.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shabakahub"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562429955432:android:79a70b76bbae5661939add",
+        "android_client_info": {
+          "package_name": "shabakahub.example.shabakahub2025"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562429955432-fidlcfiadmg8guojh1cb9boq4t3qhktr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCveKWpXJe_WQHxQjv_034XorEVlm0ZrE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562429955432-fidlcfiadmg8guojh1cb9boq4t3qhktr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "562429955432-cfcdj45undq7le0p756htkkiklmactut.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shabakahub"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:562429955432:android:03c0469d4cf9b9c4939add",
+        "android_client_info": {
+          "package_name": "shabakahub.example.shabakahubcources"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "562429955432-fidlcfiadmg8guojh1cb9boq4t3qhktr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCveKWpXJe_WQHxQjv_034XorEVlm0ZrE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "562429955432-fidlcfiadmg8guojh1cb9boq4t3qhktr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "562429955432-cfcdj45undq7le0p756htkkiklmactut.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.shabakahub"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
