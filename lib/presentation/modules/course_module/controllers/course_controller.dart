@@ -1,4 +1,5 @@
 // lib/modules/course_module/controllers/course_controller.dart
+import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import 'package:shabakahub2025/data/models/course_model.dart';
 import 'package:shabakahub2025/data/models/lesson_model.dart';
@@ -102,5 +103,21 @@ class CourseController extends GetxController {
     } finally {
       isLoading.value = false;
     }
+  }
+  /// Helper methods
+  int getCrossAxisCount(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    if (width < 600) return 1;   // phones
+    if (width < 900) return 2;   // tablets
+    if (width < 1200) return 3;  // small desktop
+    return 4;                    // large screens
+  }
+
+  double getChildAspectRatio(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    if (width < 600) return 0.9;   // taller cards on mobile
+    if (width < 900) return 0.85;
+    if (width < 1200) return 0.8;
+    return 0.75;                   // slightly wider on desktop
   }
 }

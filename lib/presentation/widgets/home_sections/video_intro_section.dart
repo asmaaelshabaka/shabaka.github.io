@@ -21,7 +21,7 @@ class VideoIntroSection extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.only(bottom: AppSizes.getSpacingMedium(context)),
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.surface,
+        color: Colors.black, // Changed to black to match video background
         borderRadius: BorderRadius.circular(borderRadius),
         boxShadow: [
           BoxShadow(
@@ -66,11 +66,16 @@ class VideoIntroSection extends StatelessWidget {
               child: Stack(
                 alignment: Alignment.center,
                 children: [
-                  // Keep aspect ratio instead of stretched
-                  AspectRatio(
-                    aspectRatio:
-                    controller.videoPlayerController.value.aspectRatio,
-                    child: VideoPlayer(controller.videoPlayerController),
+                  // Use SizedBox.expand to fill the container and BoxFit.cover to remove gray space
+                  SizedBox.expand(
+                    child: FittedBox(
+                      fit: BoxFit.cover,
+                      child: SizedBox(
+                        width: controller.videoPlayerController.value.size.width,
+                        height: controller.videoPlayerController.value.size.height,
+                        child: VideoPlayer(controller.videoPlayerController),
+                      ),
+                    ),
                   ),
 
                   // Gradient overlay

@@ -1,6 +1,6 @@
-// lib/modules/auth_module/views/register_view.dart
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart'; // Import the Lottie package
 import 'package:shabakahub2025/data/models/auth_request_model.dart';
 import 'package:shabakahub2025/utils/app_colors.dart';
 import 'package:shabakahub2025/utils/app_sizes.dart';
@@ -43,10 +43,12 @@ class RegisterView extends GetView<AuthController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.person_add,
-                    size: AppSizes.getIconSizeXLarge(context) * 2,
-                    color: AppColors.primaryColor,
+                  // Replaced Icon with Lottie animation
+                  SizedBox(
+                    height: AppSizes.getIconSizeXLarge(context) * 2,
+                    child: Lottie.asset(
+                      'assets/images/register.json',
+                    ),
                   ),
                   SizedBox(height: AppSizes.getSpacingLarge(context)),
                   Text(
@@ -120,7 +122,7 @@ class RegisterView extends GetView<AuthController> {
                   // Password Field
                   Obx(() => TextFormField(
                     controller: passwordController,
-                    obscureText: !controller.isLoading.value, // Simple toggle, or use a separate RxBool for visibility
+                    obscureText: !controller.isLoading.value,
                     decoration: InputDecoration(
                       labelText: 'Password',
                       hintText: 'Create a password',

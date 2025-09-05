@@ -135,6 +135,18 @@ class AppSizes {
     }
   }
 
+  static double getLogoWidth(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    // For example, the logo takes up 10% of the screen width on a small device, and caps out.
+    return (screenWidth * 0.1).clamp(80, 150); // Min width 80, max width 150
+  }
+
+  static double getLogoHeight(BuildContext context) {
+    // You can maintain a fixed aspect ratio for the logo based on its width.
+    // Assuming a logo aspect ratio of 123 / 116 ≈ 1.06
+    return getLogoWidth(context) / 1.06;
+  }
+
 
 
 

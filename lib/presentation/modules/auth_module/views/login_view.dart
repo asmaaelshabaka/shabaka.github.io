@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/get_utils/src/get_utils/get_utils.dart';
-import 'package:shabakahub2025/presentation/modules/auth_module/controllers/auth_controller.dart';
-import 'package:shabakahub2025/utils/app_colors.dart';
-import 'package:shabakahub2025/utils/app_sizes.dart';
+
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../../data/models/auth_request_model.dart';
 import '../../../../routes/app_routes.dart';
+import '../../../../utils/app_colors.dart';
+import '../../../../utils/app_sizes.dart';
+import '../controllers/auth_controller.dart';
 
 class LoginView extends GetView<AuthController> {
   const LoginView({Key? key}) : super(key: key);
@@ -21,7 +23,7 @@ class LoginView extends GetView<AuthController> {
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(
-          padding: EdgeInsets.all(AppSizes.getPaddingMedium(context)),
+          padding: EdgeInsets.all(AppSizes.getPaddingLarge(context)),
           child: ConstrainedBox(
             constraints: BoxConstraints(
               maxWidth: AppSizes.getMaxContentWidth(context),
@@ -31,10 +33,13 @@ class LoginView extends GetView<AuthController> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(
-                    Icons.school,
-                    size: AppSizes.getIconSizeXLarge(context) * 2,
-                    color: AppColors.primaryColor,
+                  // Lottie animation
+                  SizedBox(
+                    height: AppSizes.getIconSizeXLarge(context) * 2,
+                    width:AppSizes.getIconSizeXLarge(context) * 2.5 ,
+                    child: Lottie.asset(
+                      'assets/images/login.json',
+                    ),
                   ),
                   SizedBox(height: AppSizes.getSpacingLarge(context)),
                   Text(
@@ -55,20 +60,39 @@ class LoginView extends GetView<AuthController> {
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: AppSizes.getSpacingLarge(context)),
+
+                  // Email Field
                   TextFormField(
                     controller: emailController,
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       labelText: 'Email',
                       hintText: 'Enter your email',
-                      prefixIcon: Icon(Icons.email),
+                      prefixIcon: Icon(Icons.email, size: AppSizes.getIconSizeSmall(context)),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(
                           AppSizes.getBorderRadiusMedium(context),
                         ),
+                        borderSide: BorderSide(color: AppColors.greyText.withOpacity(0.3)),
+                      ),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(
+                          AppSizes.getBorderRadiusMedium(context),
+                        ),
+                        borderSide: BorderSide(color: AppColors.greyText.withOpacity(0.3)),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(
+                          AppSizes.getBorderRadiusMedium(context),
+                        ),
+                        borderSide: BorderSide(color: AppColors.primaryColor),
                       ),
                       filled: true,
-                      fillColor: AppColors.hubWhite,
+                      fillColor: Colors.white,
+                      contentPadding: EdgeInsets.symmetric(
+                        vertical: AppSizes.getPaddingMedium(context),
+                        horizontal: AppSizes.getPaddingMedium(context),
+                      ),
                     ),
                     validator: (value) {
                       if (value == null || value.isEmpty) {
@@ -84,7 +108,7 @@ class LoginView extends GetView<AuthController> {
 
                   // Password Field
                   Obx(
-                    () => TextFormField(
+                        () => TextFormField(
                       controller: passwordController,
                       obscureText: !controller.isLoading.value,
                       decoration: InputDecoration(
@@ -93,6 +117,7 @@ class LoginView extends GetView<AuthController> {
                         prefixIcon: Icon(
                           Icons.lock,
                           color: AppColors.primaryColor,
+                          size: AppSizes.getIconSizeSmall(context),
                         ),
                         suffixIcon: IconButton(
                           onPressed: () {},
@@ -101,15 +126,33 @@ class LoginView extends GetView<AuthController> {
                                 ? Icons.visibility
                                 : Icons.visibility_off,
                             color: AppColors.greyText,
+                            size: AppSizes.getIconSizeSmall(context),
                           ),
                         ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(
                             AppSizes.getBorderRadiusMedium(context),
                           ),
+                          borderSide: BorderSide(color: AppColors.greyText.withOpacity(0.3)),
+                        ),
+                        enabledBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                            AppSizes.getBorderRadiusMedium(context),
+                          ),
+                          borderSide: BorderSide(color: AppColors.greyText.withOpacity(0.3)),
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(
+                            AppSizes.getBorderRadiusMedium(context),
+                          ),
+                          borderSide: BorderSide(color: AppColors.primaryColor),
                         ),
                         filled: true,
-                        fillColor: AppColors.hubWhite,
+                        fillColor: Colors.white,
+                        contentPadding: EdgeInsets.symmetric(
+                          vertical: AppSizes.getPaddingMedium(context),
+                          horizontal: AppSizes.getPaddingMedium(context),
+                        ),
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -124,7 +167,7 @@ class LoginView extends GetView<AuthController> {
                   ),
 
                   ///Forget Password
-                  ///
+                  SizedBox(height: AppSizes.getSpacingSmall(context)),
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
@@ -139,51 +182,63 @@ class LoginView extends GetView<AuthController> {
                       },
                       child: Text(
                         'Forgot Password?',
-                        style: TextStyle(color: AppColors.primaryColor),
+                        style: TextStyle(
+                          color: AppColors.primaryColor,
+                          fontSize: AppSizes.getFontSizeSmall(context),
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(height: AppSizes.getSpacingMedium(context)),
 
-                  // Login Button
+                  // Login Button - Made more professional
                   Obx(
-                    () => ElevatedButton(
-                      onPressed:
-                          controller.isLoading.value
-                              ? null
-                              : () {
-                                if (_formKey.currentState!.validate()) {
-                                  controller.login(
-                                    LoginRequestModel(
-                                      email: emailController.text.trim(),
-                                      password: passwordController.text,
-                                    ),
-                                  );
-                                }
-                              },
-                      child:
-                          controller.isLoading.value
-                              ? CircularProgressIndicator(color: Colors.white)
-                              : Text(
-                                'Login',
-                                style: TextStyle(
-                                  fontSize: AppSizes.getFontSizeLarge(context),
-                                  fontWeight: FontWeight.bold,
-                                ),
+                        () => SizedBox(
+                      width: double.infinity*.5,
+                      child: ElevatedButton(
+                        onPressed: controller.isLoading.value
+                            ? null
+                            : () {
+                          if (_formKey.currentState!.validate()) {
+                            controller.login(
+                              LoginRequestModel(
+                                email: emailController.text.trim(),
+                                password: passwordController.text,
                               ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primaryColor,
-                        foregroundColor: AppColors.hubWhite,
-                        padding: EdgeInsets.symmetric(
-                          vertical: AppSizes.getPaddingMedium(context),
-                          horizontal: AppSizes.getPaddingLarge(context),
-                        ),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(
-                            AppSizes.getBorderRadiusLarge(context),
+                            );
+                          }
+                        },
+                        child: controller.isLoading.value
+                            ? SizedBox(
+                          width: AppSizes.getIconSizeSmall(context),
+                          height: AppSizes.getIconSizeSmall(context),
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                            strokeWidth: 2.0,
+                          ),
+                        )
+                            : Text(
+                          'Login',
+                          style: TextStyle(
+                            fontSize: AppSizes.getFontSizeMedium(context),
+                            fontWeight: FontWeight.w600,
                           ),
                         ),
-                        minimumSize: Size(double.infinity, 0), // Full width
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: AppColors.primaryColor,
+                          foregroundColor: Colors.white,
+                          padding: EdgeInsets.symmetric(
+                            vertical: AppSizes.getPaddingMedium(context),
+                            horizontal: AppSizes.getPaddingLarge(context),
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(
+                              AppSizes.getBorderRadiusMedium(context),
+                            ),
+                          ),
+                          elevation: 2,
+                          shadowColor: Colors.black.withOpacity(0.1),
+                        ),
                       ),
                     ),
                   ),
@@ -195,7 +250,10 @@ class LoginView extends GetView<AuthController> {
                     children: [
                       Text(
                         'Dont have an account?',
-                        style: TextStyle(color: AppColors.textColor),
+                        style: TextStyle(
+                          color: AppColors.textColor,
+                          fontSize: AppSizes.getFontSizeSmall(context),
+                        ),
                       ),
                       TextButton(
                         onPressed: () {Get.toNamed(Routes.REGISTER);},
@@ -203,7 +261,8 @@ class LoginView extends GetView<AuthController> {
                           'Register',
                           style: TextStyle(
                             color: AppColors.primaryColor,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w600,
+                            fontSize: AppSizes.getFontSizeSmall(context),
                           ),
                         ),
                       ),
